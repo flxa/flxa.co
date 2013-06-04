@@ -1,0 +1,618 @@
+/************************************************************************************************************
+Variables
+************************************************************************************************************/
+/************************************************************************************************************
+Fonts
+************************************************************************************************************/
+@font-face {
+  font-family: 'iconfont';
+  src: url("../fonts/icomoon.eot");
+  src: url("../fonts/icomoon.eot?#iefix") format("embedded-opentype"), url("../fonts/icomoon.woff") format("woff"), url("../fonts/icomoon.ttf") format("truetype"), url("../fonts/icomoon.svg#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'distractorregular';
+  src: url("../fonts/distractor-regular-webfont.eot");
+  src: url("../fonts/distractor-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/distractor-regular-webfont.woff") format("woff"), url("../fonts/distractor-regular-webfont.ttf") format("truetype"), url("../fonts/distractor-regular-webfont.svg#distractorregular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+[data-icon]:before {
+  font-family: 'iconfont';
+  content: attr(data-icon);
+  speak: none;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased; }
+
+i {
+  text-decoration: none;
+  font-style: normal; }
+
+body {
+  font-family: Consolas, monospace;
+  font-size: 16px;
+  padding: 40px;
+  background: #ffffff;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0; }
+
+section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  min-height: 100%; }
+
+h2 {
+  font-style: 2em; }
+
+h2.pop {
+  font-family: 'distractorregular'; }
+
+#display {
+  font-size: 3em;
+  width: 11.7em;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 0.1em solid black;
+  text-align: left;
+  margin: 0 auto;
+  text-shadow: 0 1px 0 white;
+  -webkit-animation: typing 2s steps(21, end), blink-caret 0.5s step-end infinite;
+  -moz-animation: typing 2s steps(21, end), blink-caret 0.5s step-end infinite; }
+
+#display2 {
+  display: none;
+  text-align: center;
+  text-shadow: 0 1px 0 white;
+  margin-top: 20%;
+  font-family: 'distractorregular';
+  font-size: 40px; }
+
+#display3 {
+  display: none;
+  text-align: center;
+  text-shadow: 0 1px 0 white;
+  font-family: 'distractorregular';
+  font-size: 40px; }
+
+#display4 {
+  display: none;
+  text-align: center;
+  text-shadow: 0 1px 0 white;
+  font-family: 'distractorregular';
+  font-size: 40px; }
+
+#display5 {
+  display: none;
+  text-align: center;
+  text-shadow: 0 1px 0 white;
+  font-size: 40px; }
+
+.big-icons {
+  display: none;
+  text-align: center;
+  text-shadow: 1px 1px 0 white;
+  font-size: 100px;
+  line-height: 1.1;
+  vertical-align: bottom; }
+
+/*Lets start with the cloud formation rather*/
+/*The container will also serve as the SKY*/
+* {
+  margin: 0;
+  padding: 0; }
+
+body {
+  /*To hide the horizontal scroller appearing during the animation*/
+  overflow: hidden; }
+
+#clouds {
+  padding: 100px 0; }
+
+/*Time to finalise the cloud shape*/
+.cloud {
+  width: 200px;
+  height: 60px;
+  background: #fff;
+  border-radius: 200px;
+  -moz-border-radius: 200px;
+  -webkit-border-radius: 200px;
+  position: relative; }
+
+.cloud:before, .cloud:after {
+  content: '';
+  position: absolute;
+  background: #fff;
+  width: 100px;
+  height: 80px;
+  position: absolute;
+  top: -15px;
+  left: 10px;
+  border-radius: 100px;
+  -moz-border-radius: 100px;
+  -webkit-border-radius: 100px;
+  -webkit-transform: rotate(30deg);
+  transform: rotate(30deg);
+  -moz-transform: rotate(30deg); }
+
+.cloud:after {
+  width: 120px;
+  height: 120px;
+  top: -55px;
+  left: auto;
+  right: 15px; }
+
+/*Time to animate*/
+.x1 {
+  right: -2000px;
+  -webkit-animation: moveclouds 10s linear 1;
+  -moz-animation: moveclouds 10s linear 1;
+  -o-animation: moveclouds 10s linear 1; }
+
+/*variable speed, opacity, and position of clouds for realistic effect*/
+.x2 {
+  right: -2200px;
+  -webkit-transform: scale(0.6);
+  -moz-transform: scale(0.6);
+  transform: scale(0.6);
+  opacity: 0.6;
+  /*opacity proportional to the size*/
+  /*Speed will also be proportional to the size and opacity*/
+  /*More the speed. Less the time in 's' = seconds*/
+  -webkit-animation: movecloudsright 10s linear 1;
+  -moz-animation: movecloudsright 10s linear 1;
+  -o-animation: movecloudsright 10s linear 1; }
+
+.x3 {
+  right: -2100px;
+  top: -200px;
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  transform: scale(0.8);
+  opacity: 0.8;
+  /*opacity proportional to the size*/
+  -webkit-animation: moveclouds 20s linear 1;
+  -moz-animation: moveclouds 20s linear 1;
+  -o-animation: moveclouds 20s linear 1; }
+
+.x4 {
+  left: -400px;
+  top: -250px;
+  -webkit-transform: scale(0.75);
+  -moz-transform: scale(0.75);
+  transform: scale(0.75);
+  opacity: 0.75;
+  /*opacity proportional to the size*/
+  -webkit-animation: movecloudsright 18s linear 1;
+  -moz-animation: movecloudsright 18s linear 1;
+  -o-animation: movecloudsright 18s linear 1; }
+
+.x5 {
+  right: -2150px;
+  top: -150px;
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  transform: scale(0.8);
+  opacity: 0.8;
+  /*opacity proportional to the size*/
+  -webkit-animation: moveclouds 24s linear 1;
+  -moz-animation: moveclouds 24s linear 1;
+  -o-animation: moveclouds 24s linear 1; }
+
+.sun {
+  float: left;
+  position: absolute;
+  top: -150px;
+  left: -150px;
+  margin: 30px;
+  width: 80px;
+  height: 80px; }
+
+.sun-anime {
+  width: 100%;
+  height: 100%;
+  -webkit-animation: sunrolling 30s infinite;
+  -moz-animation: sunrolling 30s infinite;
+  -ie-animation: sunrolling 30s infinite;
+  -o-animation: sunrolling 30s infinite;
+  animation: sunrolling 30s infinite; }
+
+.sun-ball {
+  width: 100%;
+  height: 100%;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ie-border-radius: 100%;
+  -o-border-radius: 100%;
+  border-radius: 100%;
+  background: #ffcf11;
+  background-image: -webkit-radial-gradient(circle, #ffdf05, #ffcf11);
+  /* Chrome 10+, Saf5.1+ */
+  background-image: -moz-radial-gradient(circle, #ffdf05, #ffcf11);
+  background-image: -o-radial-gradient(circle, #ffdf05, #ffcf11);
+  background-image: -ie-radial-gradient(circle, #ffdf05, #ffcf11);
+  background-image: radial-gradient(circle, #ffdf05, #ffdf05);
+  -webkit-box-shadow: 0 0 100px #ffdf05;
+  -moz-box-shadow: 0 0 100px #ffdf05;
+  -ie-box-shadow: 0 0 100px #ffdf05;
+  -o-box-shadow: 0 0 100px #ffdf05;
+  box-shadow: 0 0 100px #ffdf05; }
+
+.sun-light {
+  position: absolute;
+  top: -30%;
+  left: 50%;
+  width: 2px;
+  height: 160%; }
+
+.sun-light b,
+.sun-light s {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 12%;
+  /* 100*30/100=18.75 */
+  background: #fed65b; }
+
+.sun-light s {
+  top: auto;
+  bottom: 0; }
+
+.sun-light:nth-child(10n+2) {
+  -webkit-transform: rotate(18deg);
+  -moz-transform: rotate(18deg);
+  -o-transform: rotate(18deg);
+  -ie-transform: rotate(18deg);
+  transform: rotate(18deg); }
+
+.sun-light:nth-child(10n+3) {
+  -webkit-transform: rotate(36deg);
+  -moz-transform: rotate(36deg);
+  -o-transform: rotate(36deg);
+  -ie-transform: rotate(36deg);
+  transform: rotate(36deg); }
+
+.sun-light:nth-child(10n+4) {
+  -webkit-transform: rotate(54deg);
+  -moz-transform: rotate(54deg);
+  -o-transform: rotate(54deg);
+  -ie-transform: rotate(54deg);
+  transform: rotate(54deg); }
+
+.sun-light:nth-child(10n+5) {
+  -webkit-transform: rotate(72deg);
+  -moz-transform: rotate(72deg);
+  -o-transform: rotate(72deg);
+  -ie-transform: rotate(72deg);
+  transform: rotate(72deg); }
+
+.sun-light:nth-child(10n+6) {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ie-transform: rotate(90deg);
+  transform: rotate(90deg); }
+
+.sun-light:nth-child(10n+7) {
+  -webkit-transform: rotate(108deg);
+  -moz-transform: rotate(108deg);
+  -o-transform: rotate(108deg);
+  -ie-transform: rotate(108deg);
+  transform: rotate(108deg); }
+
+.sun-light:nth-child(10n+8) {
+  -webkit-transform: rotate(126deg);
+  -moz-transform: rotate(126deg);
+  -o-transform: rotate(126deg);
+  -ie-transform: rotate(126deg);
+  transform: rotate(126deg); }
+
+.sun-light:nth-child(10n+9) {
+  -webkit-transform: rotate(144deg);
+  -moz-transform: rotate(144deg);
+  -o-transform: rotate(144deg);
+  -ie-transform: rotate(144deg);
+  transform: rotate(144deg); }
+
+.sun-light:nth-child(10n+10) {
+  -webkit-transform: rotate(162deg);
+  -moz-transform: rotate(162deg);
+  -o-transform: rotate(162deg);
+  -ie-transform: rotate(162deg);
+  transform: rotate(162deg); }
+
+.sunshine {
+  top: 200px;
+  left: 200px;
+  -webkit-animation-name: shine;
+  -webkit-animation-duration: 1000ms;
+  -moz-animation-name: shine;
+  -moz-animation-duration: 1000ms;
+  -ms-animation-name: shine;
+  -ms-animation-duration: 1000ms;
+  animation-name: shine;
+  animation-duration: 1000ms; }
+
+.lightgrey {
+  background: lightblue;
+  -webkit-animation-name: swapbg;
+  -webkit-animation-duration: 500ms;
+  -moz-animation-name: swapbg;
+  -moz-animation-duration: 500ms;
+  -ms-animation-name: swapbg;
+  -ms-animation-duration: 500ms;
+  animation-name: swapbg;
+  animation-duration: 500ms; }
+
+.lightblue {
+  background: lightgrey;
+  -webkit-animation-name: swapbgtwo;
+  -webkit-animation-duration: 500ms;
+  -moz-animation-name: swapbgtwo;
+  -moz-animation-duration: 500ms;
+  -ms-animation-name: swapbgtwo;
+  -ms-animation-duration: 500ms;
+  animation-name: swapbgtwo;
+  animation-duration: 500ms; }
+
+/************************************************************************************************************
+Animation
+************************************************************************************************************/
+@-webkit-keyframes typing {
+  from {
+    width: 0; }
+
+  to {
+    width: 11.7em; } }
+
+@-moz-keyframes typing {
+  from {
+    width: 0; }
+
+  to {
+    width: 11.7em; } }
+
+@-webkit-keyframes blink-caret {
+  from, to {
+    border-color: transparent; }
+
+  50% {
+    border-color: black; } }
+
+@-moz-keyframes blink-caret {
+  from, to {
+    border-color: transparent; }
+
+  50% {
+    border-color: black; } }
+
+@-webkit-keyframes moveclouds {
+  0% {
+    margin-left: 0px; }
+
+  100% {
+    margin-left: -2300px; } }
+
+@-moz-keyframes moveclouds {
+  0% {
+    margin-left: 0px; }
+
+  100% {
+    margin-left: -2300px; } }
+
+@-o-keyframes moveclouds {
+  0% {
+    margin-left: 0px; }
+
+  100% {
+    margin-left: -2300px; } }
+
+@-webkit-keyframes movecloudsleft {
+  0% {
+    margin-left: 2000px; }
+
+  100% {
+    margin-left: -2000px; } }
+
+@-moz-keyframes movecloudsleft {
+  0% {
+    margin-left: 2000px; }
+
+  100% {
+    margin-left: -2000px; } }
+
+@-o-keyframes movecloudsleft {
+  0% {
+    margin-left: 2000px; }
+
+  100% {
+    margin-left: -2000px; } }
+
+@-webkit-keyframes movecloudsright {
+  0% {
+    left: -300px; }
+
+  100% {
+    left: 2000px; } }
+
+@-moz-keyframes movecloudsright {
+  0% {
+    left: -200px; }
+
+  100% {
+    left: -2000px; } }
+
+@-o-keyframes movecloudsright {
+  0% {
+    left: -200px; }
+
+  100% {
+    left: -2000px; } }
+
+/* sun */
+@-webkit-keyframes sunrolling {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -ie-transform: rotate(0deg);
+    transform: rotate(0deg); }
+
+  100% {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ie-transform: rotate(180deg);
+    transform: rotate(180deg); } }
+
+@-moz-keyframes sunrolling {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -ie-transform: rotate(0deg);
+    transform: rotate(0deg); }
+
+  100% {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ie-transform: rotate(180deg);
+    transform: rotate(180deg); } }
+
+@-ms-keyframes sunrolling {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -ie-transform: rotate(0deg);
+    transform: rotate(0deg); }
+
+  100% {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ie-transform: rotate(180deg);
+    transform: rotate(180deg); } }
+
+@keyframes sunrolling {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -ie-transform: rotate(0deg);
+    transform: rotate(0deg); }
+
+  100% {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ie-transform: rotate(180deg);
+    transform: rotate(180deg); } }
+
+@-webkit-keyframes shine {
+  0% {
+    top: -150px;
+    left: -150px; }
+
+  100% {
+    top: 200px;
+    left: 200px; } }
+
+@-moz-keyframes shine {
+  0% {
+    top: -150px;
+    left: -150px; }
+
+  100% {
+    top: 200px;
+    left: 200px; } }
+
+@-ms-keyframes shine {
+  0% {
+    top: -150px;
+    left: -150px; }
+
+  100% {
+    top: 200px;
+    left: 200px; } }
+
+@keyframes shine {
+  0% {
+    top: -150px;
+    left: -150px; }
+
+  100% {
+    top: 200px;
+    left: 200px; } }
+
+@-webkit-keyframes swapbg {
+  0% {
+    background-color: white; }
+
+  100% {
+    background-color: lightblue; } }
+
+@-moz-keyframes swapbg {
+  0% {
+    background-color: white; }
+
+  100% {
+    background-color: lightblue; } }
+
+@-ms-keyframes swapbg {
+  0% {
+    background-color: white; }
+
+  100% {
+    background-color: lightblue; } }
+
+@keyframes swapbg {
+  0% {
+    background-color: white; }
+
+  100% {
+    background-color: lightblue; } }
+
+@-webkit-keyframes swapbgtwo {
+  0% {
+    background-color: lightblue; }
+
+  100% {
+    background-color: lightgrey; } }
+
+@-moz-keyframes swapbgtwo {
+  0% {
+    background-color: lightblue; }
+
+  100% {
+    background-color: lightgrey; } }
+
+@-ms-keyframes swapbgtwo {
+  0% {
+    background-color: lightblue; }
+
+  100% {
+    background-color: lightgrey; } }
+
+@keyframes swapbgtwo {
+  0% {
+    background-color: lightblue; }
+
+  100% {
+    background-color: lightgrey; } }
