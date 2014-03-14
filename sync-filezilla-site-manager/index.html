@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>How to: Sync FileZilla Site Manager | FLXACO | Code &amp; Design</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="cleartype" content="on">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="robots" content="index, follow">
+    <meta name="keywords" content="sync, filezilla, site manager, mac, osx, os x, windows, site, manager, entries, xml">
+    <meta name="description" content="How To: Sync FileZilla's Site Manager entries between two or more machines">
+    <meta property="og:title" content="How to: Sync FileZilla Site Manager">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://flxa.co/sync-filezilla-site-manager/">
+    <meta property="og:image" content="http://flxa.co/img/filezilla.jpeg">
+    <meta property="og:site_name" content="FLXACO | Code and Design">
+    <meta property="og:description" content="How To: Sync FileZilla's Site Manager entries between two or more machines">
+    <link href='http://fonts.googleapis.com/css?family=Monoton' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" media="all" type="text/css" href="../css/filezilla.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  </head>
+  <body>
+    <section>
+    	<article>
+    		<header class="clearfix">
+          <div class="feature-icon-contain">
+  				  <i data-icon="filezilla" class="feature-icon"></i>
+          </div>
+          <div class="feature-title">
+            <h1>How To: Sync FileZilla on OS X &amp; Windows</h1>
+      			<h2>Syncing Site Manager entries between two or more machines</h2>
+            <p class="byline">By Nicholas Fletcher</p>
+          </div>
+    		</header>
+    		<p>Have you got hundreds of entries in your “site manager” that you need to share across multiple machines?</p>
+			
+			<p>I had heaps and manually giving the details of each one to another individual in the same office with the same priveleges as me was becoming a pain.</p>
+
+			<p>Luckily it's fairly easy to set up Filezilla's Configuration to get it's sitemanager entires from a shared resource.</p>
+
+			<p class="warning"><i data-icon="alert"></i> WARNING: This method will share all the sites in your sitemanager with any computer configured to get it's settings from the same settings file. I do not recommend using this tutorial if you have certain sites that you don't want others to access. Also BACKUP (export) your original settings before you begin.
+      <i data-icon="disk"></i></p>
+
+			<p>From the fzdefaults.xml.example file: <code>“By default, FileZilla stores its settings in the user's home directory. If you want to change this location, modify the "Config Location" setting (see below).”</code></p>
+
+			<p>You'll need all machines to be able to access a file in the same location, a networked drive.</p>
+
+			<p>In summary we'll need to use one machine to set it up and then connect subsequent machines to that configuration file. We'll start with a Mac.</p>
+
+			<h3>OS X</h3>
+
+			<p>Download Filezilla <a href="https://filezilla-project.org/download.php"><i data-icon="link"></i> here</a> if you don't already have it.</p>
+			<p>Install it into your system Applications Folder.</p>
+			<p>If you already have FileZilla then BACKUP YOUR SITE MANAGER entries via <code>File > Export</code> Don't worry about Settings and Queues just entires will do.</p>
+			<p>Save that file as sitemanager.xml to a handy location for later use (useful but not required).</p>
+			<p>Go to that folder and right click on Filezilla.app and select <code>“Show Package Contents”</code></p>
+			<img src="../img/filezilla2.jpeg" alt="Show Package Contents Exmaple">
+			<p>Then go into the “docs” folder and right click on fzdefaults.xml.example and choose “Open With” and then select a text editor of your choice.</p>
+			<img src="../img/filezilla2.jpeg" alt="The docs folder inside the FileZlla Application Package">
+			<p>There are lots of comments after the XML declaration, have a read through that. The main thing we're looking for is:</p>
+			<pre>
+- Windows:
+
+	Put the file fzdefaults.xml into the same directory as filezilla.exe
+
+- OS X:
+
+	Modify the app bundle, put fzdefaults.xml into the
+    Contents/SharedSupport/ subdirectory
+			</pre>
+
+			<p>So considering we are starting with OS X we'll “Save As...” this file to <code>/Applications/Filezilla.app/Contents/SharedSupport/</code></p>
+
+			<p>We have not made our changes yet so we'll do that next.</p>
+
+			<p>Head down to line 65 and you'll find <code><Setting name="Config Location">$SOMEDIR/filezilla/</Setting></code> Change it to <code><Setting name="Config Location">/Absolute/Path/to/Filezilla/</Setting></code></p>
+
+			<p>So what I did on my personal netwrok here is changed it to <code>“/Volumes/prepress/Filezilla/”</code> where “Filezilla/” is a folder that I created specifically for this task on a previously mounted network share. /Volumes is the folder that you will find your mounted shares in by default. If you changed that then I don't think you need my help.</p>
+
+			<p>Ok so save that change we just made and close the file. You may need to provide Administrator priveleges to save a file inside an .App bundle.</p>
+
+			<p>If it's open, quit Filezilla. Start Filezilla. This will generate some config files in our shared folder from the settings above. You should find a sitemanager.xml has been created. If not copy one into place by using the sitemanager.xml file from your export at the start, copy it to <code>/Volumes/sharename/Filezilla</code></p>
+
+			<p>Fire up or restart Filezilla and go to Site Manager and you should now see those entries.</p>
+
+			<p>So what we have do so far is tell our local copy of Filezilla that it needs to store settings and enties on a netwrok share and if you copied your previous entries those should be showing up in Filezilla's Site Manager.</p>
+
+			<p>Now we want to share these settings with everyone in office right?</p>
+
+			<p>Go to another Mac and open Finder and go to Applications, find Filezilla, right click on the icon and choose “Show Package Contents” then navigate to “docs” and open the fzdefaults.xml.example in a text editor and change line 65 from <Setting name="Config Location">$SOMEDIR/filezilla/</Setting> to <Setting name="Config Location">/Volumes/sharename/Filezilla/</Setting>. Save that to <code>/Applications/Filezilla.app/Contents/SharedSupport/</code> (relative path is back one folder then Contents/...).</p>
+
+			<p>Open Filezilla and go to Site Manager and you should get all the same sites. I tested this between a few Macs and it seems that the sitemanager.xml file on the server is read every time you open sitemanager so it's pretty live and very useful.</p>
+
+			<p>No more emails from people asking for FTP details, right :)</p>
+
+			<h3>Windows</h3>
+
+			<p>To connect a Windows machine to the same config file. Firstly Map your network drive (n this example I'll use the drive letter “P”). Go to <code>C:\Program Files\FileZilla FTP Client\docs</code> and find the <code>fzdefaults.xml.example</code> file. Open it in a text editor and change the Config Location to <code>P:\Filezilla\</code> and save the file as fzdefaults.xml in the same location as the Filezilla.exe file <code>C:\Program FIles\FileZilla FTP Client\</code> Then fire up Filezilla and go to site manager. The entries should be updated to the same as whats on the server.</p>
+		</article>
+    </section>
+    <footer><a href="http://www.flxa.co">16th August 2013 flxa.co</a></footer>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-6360426-8', 'flxa.co');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

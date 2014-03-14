@@ -1,0 +1,194 @@
+$brand: #bada55;
+$primary: darkgrey;
+$secondary: lighten($primary,20%);
+$body: white;
+@import url(main.css);
+
+html, body {
+  font-size: 18px;
+  height: auto;
+  margin: 0;
+  font-style: normal;
+  font-weight: 300;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background: lighten(black,15%);
+  color: $body;
+  padding-bottom:60px;
+}
+
+h1 {
+  font-size: 24px;
+  color: $brand;
+  border-radius: 5px;
+  line-height: 1.5;
+}
+
+h3 {
+  font-size: 20px;
+  padding: 0;
+  margin: 0 0 20px 0;
+  color: white;
+}
+article {
+	padding: 0 20px;
+}
+article img {
+	width: 300px;
+	max-width: 80%;
+	margin: 20px;
+}
+img.left {
+	float:left;
+	margin-right: 2em;
+	margin-bottom: 2em;
+	max-width:25%;
+}
+
+li {
+	list-style: none;
+	color: $primary;
+}
+a, li a {
+	color: $primary;
+	text-decoration: none;
+	transition: all 1s;
+}
+a:hover, li a:hover {
+	color: $brand;
+}
+i.red {
+	color: darken(red,20%);
+}
+
+.feature-icon {
+	display: block;
+	margin: 0 auto;
+	border: 10px solid darken($brand,20%);
+	width: 200px;
+	height: 200px;
+	border-radius: 100%;
+	font-size: 200px;
+	padding: 20px;
+	background: rgba($brand,0.3);
+	overflow: hidden;
+	text-shadow: -1px -1px 0 darken($brand,20%),
+	-2px -2px 0 darken($brand,20%),
+	-3px -3px 0 darken($brand,20%),
+	-4px -4px 0 darken($brand,20%),
+	-5px -5px 0 darken($brand,20%),
+	-6px -6px 0 darken($brand,20%),
+	-7px -7px 0 darken($brand,20%),
+	-8px -8px 0 darken($brand,20%),
+	-9px -9px 0 darken($brand,20%),
+	-10px -10px 0 darken($brand,20%),
+	-11px -11px 0 darken($brand,20%),
+	-12px -12px 0 darken($brand,20%),
+	-13px -13px 0 darken($brand,20%),
+	-14px -14px 0 darken($brand,20%),
+	-15px -15px 0 darken($brand,20%),
+	-16px -16px 0 darken($brand,20%),
+	-17px -17px 0 darken($brand,20%),
+	-18px -18px 0 darken($brand,20%),
+	-19px -19px 0 darken($brand,20%),
+	-20px -20px 0 darken($brand,20%),
+	-21px -21px 0 darken($brand,20%),
+	-22px -22px 0 darken($brand,20%),
+	-23px -23px 0 darken($brand,20%),
+	-24px -24px 0 darken($brand,20%),
+	-25px -25px 0 darken($brand,20%),
+	-26px -26px 0 darken($brand,20%),
+	-27px -27px 0 darken($brand,20%),
+	-28px -28px 0 darken($brand,20%),
+	-29px -29px 0 darken($brand,20%),
+	-30px -30px 0 darken($brand,20%),
+	-31px -31px 0 darken($brand,20%),
+	-32px -32px 0 darken($brand,20%),
+	-33px -33px 0 darken($brand,20%),
+	-34px -34px 0 darken($brand,20%),
+	-35px -35px 0 darken($brand,20%),
+	-36px -36px 0 darken($brand,20%),
+	-37px -37px 0 darken($brand,20%),
+	-38px -38px 0 darken($brand,20%),
+	-39px -39px 0 darken($brand,20%),
+	-40px -40px 0 darken($brand,20%),
+	-41px -41px 0 darken($brand,20%),
+	-42px -42px 0 darken($brand,20%),
+	-43px -43px 0 darken($brand,20%),
+	-44px -44px 0 darken($brand,20%),
+	-45px -45px 0 darken($brand,20%),
+	-46px -46px 0 darken($brand,20%),
+	-47px -47px 0 darken($brand,20%),
+	-48px -48px 0 darken($brand,20%),
+	-49px -49px 0 darken($brand,20%),
+	-50px -50px 0 darken($brand,20%),
+	-51px -51px 0 darken($brand,20%),
+	-52px -52px 0 darken($brand,20%),
+	-53px -53px 0 darken($brand,20%),
+	-54px -54px 0 darken($brand,20%),
+	-55px -55px 0 darken($brand,20%),
+	-56px -56px 0 darken($brand,20%),
+	-57px -57px 0 darken($brand,20%),
+	-58px -58px 0 darken($brand,20%),
+	-59px -59px 0 darken($brand,20%),
+	-60px -60px 0 darken($brand,20%),
+	-71px -71px 0 darken($brand,20%),
+	-72px -72px 0 darken($brand,20%),
+	-73px -73px 0 darken($brand,20%),
+	-74px -74px 0 darken($brand,20%),
+	-75px -75px 0 darken($brand,20%),
+	-76px -76px 0 darken($brand,20%),
+	-77px -77px 0 darken($brand,20%),
+	-78px -78px 0 darken($brand,20%),
+	-79px -79px 0 darken($brand,20%),
+	-80px -80px 0 darken($brand,20%),
+	-81px -81px 0 darken($brand,20%),
+	-82px -82px 0 darken($brand,20%),
+	-83px -83px 0 darken($brand,20%),
+	-84px -84px 0 darken($brand,20%),
+	-85px -85px 0 darken($brand,20%),
+	-86px -86px 0 darken($brand,20%),
+	-87px -87px 0 darken($brand,20%),
+	-88px -88px 0 darken($brand,20%),
+	-89px -89px 0 darken($brand,20%),
+	-90px -90px 0 darken($brand,20%),
+	-91px -91px 0 darken($brand,20%),
+	-92px -92px 0 darken($brand,20%),
+	-93px -93px 0 darken($brand,20%),
+	-94px -94px 0 darken($brand,20%),
+	-95px -95px 0 darken($brand,20%),
+	-96px -96px 0 darken($brand,20%),
+	-97px -97px 0 darken($brand,20%),
+	-98px -98px 0 darken($brand,20%),
+	-99px -99px 0 darken($brand,20%),
+	-100px -100px 0 darken($brand,20%),
+	-101px -101px 0 darken($brand,20%),
+	-102px -102px 0 darken($brand,20%),
+	-103px -103px 0 darken($brand,20%),
+	-104px -104px 0 darken($brand,20%),
+	-105px -105px 0 darken($brand,20%),
+	-106px -106px 0 darken($brand,20%),
+	-107px -107px 0 darken($brand,20%),
+	-108px -108px 0 darken($brand,20%),
+	-109px -109px 0 darken($brand,20%),
+	-110px -110px 0 darken($brand,20%),
+	-111px -111px 0 darken($brand,20%),
+	-112px -112px 0 darken($brand,20%),
+	-113px -113px 0 darken($brand,20%),
+	-114px -114px 0 darken($brand,20%),
+	-115px -115px 0 darken($brand,20%),
+	-116px -116px 0 darken($brand,20%),
+	-117px -117px 0 darken($brand,20%),
+	-118px -118px 0 darken($brand,20%),
+	-119px -119px 0 darken($brand,20%),
+	-120px -120px 0 darken($brand,20%);
+}
+
+footer {
+	position: fixed;
+	bottom: 0;
+	width:100%;
+	padding: 20px;
+	background: #111;
+	border-top: 5px solid $brand;
+}

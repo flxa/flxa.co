@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /css/
+Disallow: /dump/
+Disallow: /js/
+Disallow: /junkers/
+Disallow: /mj/
